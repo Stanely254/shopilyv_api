@@ -3,23 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brands;
-use App\Models\Categories;
-use App\Models\CustShopi;
-use App\Models\EcommBase;
-use App\Models\Groups;
 use App\Models\ShopiStores;
-use App\Models\Stores;
 use App\Models\User;
-use App\Models\UserGroups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Mockery\Exception;
+use Exception;
 
 class AuthController extends Controller
 {
-     public function login(Request $request){
+    public function login(Request $request)
+    {
         $loginData = $request->validate([
             'email' => 'email|required',
             'password' => 'required'

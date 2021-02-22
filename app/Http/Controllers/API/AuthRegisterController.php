@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
 use App\Http\Controllers\Controller;
+use App\Models\Shopistore;
 use App\Models\ShopiStores;
+use App\Models\Store;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class AuthRegisterController extends Controller
      *username,email,phone,storename,industry,store_location,lat,lng,agreeterms,wheretosell,salesestimation
      *reg - shopistore,store,user,custshopi,
      */
-    public function register(Request $request){
+    public function Register(Request $request){
             try{
                 $this->validate($request,[
                 'username'=>'required|string',
@@ -106,7 +107,7 @@ class AuthRegisterController extends Controller
            'company_id'=>$company->id,
            'active'=>1,
            'type'=>1,
-           'location_name'=>$data['slocation'],
+           'location_name'=>$data['storelocation'],
            'location_lat'=>$data['lat'],
            'location_lng'=>$data['lng'],
        ]);
